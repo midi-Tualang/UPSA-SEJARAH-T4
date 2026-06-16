@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSA Sejarah Tahun 4 - SK Kampong Tengah</title>
+    <style>
+        /* Tetapan Asas Halaman */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f9;
+            color: #000;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Tetapan Kertas A4 */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Reka Bentuk Muka Depan */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 5px 0;
+            text-transform: uppercase;
+        }
+        .header h2 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        
+        table.info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        table.info-table th, table.info-table td {
+            border: 1px solid #000;
+            padding: 15px;
+            font-size: 18px;
+            text-align: left;
+        }
+        table.info-table th {
+            width: 30%;
+            background-color: #f9f9f9;
+        }
+
+        .instructions {
+            border: 2px solid #000;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Reka Bentuk Soalan */
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .input-text {
+            width: 100%;
+            border: none;
+            border-bottom: 1px dashed #000;
+            font-size: 16px;
+            padding: 5px;
+            font-family: inherit;
+            background: transparent;
+        }
+
+        .input-textarea {
+            width: 100%;
+            height: 80px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            padding: 10px;
+            font-family: inherit;
+            resize: none;
+            margin-top: 10px;
+        }
+
+        /* Reka Bentuk Interaktif / Semakan */
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #0056b3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background-color: #004494; }
+        .btn-print { background-color: #28a745; }
+        .btn-print:hover { background-color: #218838; }
+
+        #skema {
+            display: none;
+            background-color: #eef2f3;
+            border-left: 5px solid #0056b3;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .correct { color: green; font-weight: bold; }
+        .incorrect { color: red; font-weight: bold; }
+
+        /* Tetapan Cetakan (PDF) */
+        @media print {
+            body { background: white; padding: 0; margin: 0; }
+            .page { 
+                box-shadow: none; 
+                margin: 0; 
+                padding: 15mm; 
+                width: 100%; 
+                min-height: 100vh;
+                page-break-after: always; 
+            }
+            .no-print { display: none !important; }
+            .input-textarea { border: 1px solid #000; }
+            .input-text { border-bottom: 1px solid #000; }
+            #skema { display: block; border: none; page-break-before: always; background-color: white;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MUKA SURAT 1: HADAPAN -->
+    <div class="page">
+        <div class="header">
+            <img src="https://drive.google.com/uc?export=view&id=1GzBgEZyzRHkxzZ2_Fkn2w0uwc4WCDaMp" alt="Logo SK Kampong Tengah">
+            <h1>SEKOLAH KEBANGSAAN KAMPONG TENGAH</h1>
+            <h2>UJIAN PERTENGAHAN SESI AKADEMIK (UPSA)</h2>
+            <h2>SEJARAH TAHUN 4</h2>
+            <p><strong>MASA: 1 JAM</strong></p>
+        </div>
+
+        <div class="instructions">
+            <strong>ARAHAN KEPADA CALON:</strong>
+            <ol>
+                <li>Kertas soalan ini mengandungi <strong>Tiga (3)</strong> bahagian: Bahagian A, Bahagian B, dan Bahagian C.</li>
+                <li>Jawab <strong>SEMUA</strong> soalan.</li>
+                <li>Tuliskan nama dan kelas anda pada ruangan yang disediakan di bawah.</li>
+                <li>Muka surat ini tidak mengandungi soalan. Sila beralih ke halaman sebelah untuk mula menjawab.</li>
+            </ol>
+        </div>
+
+        <table class="info-table">
+            <tr>
+                <th>NAMA MURID</th>
+                <td><input type="text" class="input-text" placeholder="Tulis nama penuh di sini..."></td>
+            </tr>
+            <tr>
+                <th>KELAS</th>
+                <td><input type="text" class="input-text" placeholder="Tulis kelas di sini..."></td>
+            </tr>
+            <tr>
+                <th>MARKAH</th>
+                <td><br><br></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- MUKA SURAT 2: BAHAGIAN A -->
+    <div class="page">
+        <div class="section-title">BAHAGIAN A: SOALAN OBJEKTIF (10 Markah)</div>
+        <p><em>Arahan: Pilih jawapan yang paling tepat.</em></p>
+
+        <div class="question" id="q1-container">
+            1. Kaedah penyelidikan sejarah yang melibatkan kerja ekskavasi untuk menemukan tinggalan seperti fosil dan tembikar dikenali sebagai...<br>
+            <div class="options">
+                <label><input type="radio" name="q1" value="A"> A. Kaedah Lisan</label>
+                <label><input type="radio" name="q1" value="B"> B. Kaedah Bertulis</label>
+                <label><input type="radio" name="q1" value="C"> C. Kaedah Arkeologi</label>
+                <label><input type="radio" name="q1" value="D"> D. Kaedah Pemerhatian</label>
+            </div>
+        </div>
+
+        <div class="question" id="q2-container">
+            2. Dalam konsep masa sejarah (kronologi), tempoh masa 100 tahun merujuk kepada...<br>
+            <div class="options">
+                <label><input type="radio" name="q2" value="A"> A. Dekad</label>
+                <label><input type="radio" name="q2" value="B"> B. Abad</label>
+                <label><input type="radio" name="q2" value="C"> C. Alaf</label>
+                <label><input type="radio" name="q2" value="D"> D. Masihi</label>
+            </div>
+        </div>
+
+        <div class="question" id="q3-container">
+            3. Antara berikut, yang manakah <b>BUKAN</b> dokumen pengenalan diri rasmi bagi seorang murid?<br>
+            <div class="options">
+                <label><input type="radio" name="q3" value="A"> A. Sijil Kelahiran</label>
+                <label><input type="radio" name="q3" value="B"> B. MyKid</label>
+                <label><input type="radio" name="q3" value="C"> C. Buku Rekod Kesihatan</label>
+                <label><input type="radio" name="q3" value="D"> D. Kad Pengenalan Sekolah</label>
+            </div>
+        </div>
+
+        <div class="question" id="q4-container">
+            4. "Keluarga ini terdiri daripada bapa, ibu, anak-anak berserta datuk dan nenek."<br>Pernyataan di atas merujuk kepada...<br>
+            <div class="options">
+                <label><input type="radio" name="q4" value="A"> A. Keluarga Asas</label>
+                <label><input type="radio" name="q4" value="B"> B. Keluarga Kembangan</label>
+                <label><input type="radio" name="q4" value="C"> C. Keluarga Bahagia</label>
+                <label><input type="radio" name="q4" value="D"> D. Keluarga Harmoni</label>
+            </div>
+        </div>
+
+        <div class="question" id="q5-container">
+            5. Lokasi sekolah boleh dikenal pasti dengan mudah melalui objek yang menjadi panduan seperti bangunan atau pokok besar. Objek ini dikenali sebagai...<br>
+            <div class="options">
+                <label><input type="radio" name="q5" value="A"> A. Peta lakar</label>
+                <label><input type="radio" name="q5" value="B"> B. Identiti sekolah</label>
+                <label><input type="radio" name="q5" value="C"> C. Organisasi</label>
+                <label><input type="radio" name="q5" value="D"> D. Mercu tanda</label>
+            </div>
+        </div>
+
+        <div class="question" id="q6-container">
+            6. Apakah nama asal bagi kawasan Johor Bahru sebelum ia ditukar nama pada tahun 1866?<br>
+            <div class="options">
+                <label><input type="radio" name="q6" value="A"> A. Tanjung Puteri</label>
+                <label><input type="radio" name="q6" value="B"> B. Ranahon</label>
+                <label><input type="radio" name="q6" value="C"> C. Temasik</label>
+                <label><input type="radio" name="q6" value="D"> D. Miri</label>
+            </div>
+        </div>
+
+        <div class="question" id="q7-container">
+            7. Zaman bumi dilitupi air batu yang tebal disebabkan oleh penurunan suhu yang ketara dipanggil...<br>
+            <div class="options">
+                <label><input type="radio" name="q7" value="A"> A. Zaman Logam</label>
+                <label><input type="radio" name="q7" value="B"> B. Zaman Prasejarah</label>
+                <label><input type="radio" name="q7" value="C"> C. Zaman Air Batu</label>
+                <label><input type="radio" name="q7" value="D"> D. Zaman Gelap</label>
+            </div>
+        </div>
+
+        <div class="question" id="q8-container">
+            8. Pada epok manakah manusia mula mengetahui cara untuk membuat api?<br>
+            <div class="options">
+                <label><input type="radio" name="q8" value="A"> A. Epok Holosen</label>
+                <label><input type="radio" name="q8" value="B"> B. Epok Pleistosen</label>
+                <label><input type="radio" name="q8" value="C"> C. Epok Masihi</label>
+                <label><input type="radio" name="q8" value="D"> D. Epok Kuaterner</label>
+            </div>
+        </div>
+
+        <div class="question" id="q9-container">
+            9. Kawasan tanah yang luas menghubungkan daratan dengan kepulauan di Asia Tenggara pada Zaman Air Batu dikenali sebagai...<br>
+            <div class="options">
+                <label><input type="radio" name="q9" value="A"> A. Benua Asia</label>
+                <label><input type="radio" name="q9" value="B"> B. Kepulauan Melayu</label>
+                <label><input type="radio" name="q9" value="C"> C. Pentas Sunda</label>
+                <label><input type="radio" name="q9" value="D"> D. Lembah Bujang</label>
+            </div>
+        </div>
+
+        <div class="question" id="q10-container">
+            10. Kerajaan Melayu Awal manakah yang muncul paling awal iaitu pada Abad Pertama?<br>
+            <div class="options">
+                <label><input type="radio" name="q10" value="A"> A. Kerajaan Champa</label>
+                <label><input type="radio" name="q10" value="B"> B. Kerajaan Funan</label>
+                <label><input type="radio" name="q10" value="C"> C. Kerajaan Srivijaya</label>
+                <label><input type="radio" name="q10" value="D"> D. Kerajaan Majapahit</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- MUKA SURAT 3: BAHAGIAN B -->
+    <div class="page">
+        <div class="section-title">BAHAGIAN B: SOALAN SUBJEKTIF (10 Markah)</div>
+        <p><em>Arahan: Tuliskan jawapan anda di ruang yang disediakan.</em></p>
+
+        <div class="question">
+            1. Nyatakan <b>tiga (3)</b> kaedah penyelidikan sejarah yang digunakan oleh sejarawan. <em>(3 Markah)</em><br>
+            i. <input type="text" class="input-text"><br><br>
+            ii. <input type="text" class="input-text"><br><br>
+            iii. <input type="text" class="input-text"><br>
+        </div>
+
+        <div class="question">
+            2. Setiap anggota keluarga mempunyai tanggungjawab. Berikan <b>dua (2)</b> peranan ibu bapa terhadap keluarga. <em>(2 Markah)</em><br>
+            i. <input type="text" class="input-text"><br><br>
+            ii. <input type="text" class="input-text"><br>
+        </div>
+
+        <div class="question">
+            3. Identiti sekolah mesti dihormati dan menjadi kebanggaan warga sekolah. Senaraikan <b>dua (2)</b> contoh identiti sekolah. <em>(2 Markah)</em><br>
+            i. <input type="text" class="input-text"><br><br>
+            ii. <input type="text" class="input-text"><br>
+        </div>
+
+        <div class="question">
+            4. Peningkatan suhu bumi pada akhir Zaman Air Batu telah memberikan kesan kepada bentuk fizikal dan hidupan. Berikan <b>tiga (3)</b> kesan perubahan suhu bumi tersebut. <em>(3 Markah)</em><br>
+            i. <input type="text" class="input-text"><br><br>
+            ii. <input type="text" class="input-text"><br><br>
+            iii. <input type="text" class="input-text"><br>
+        </div>
+    </div>
+
+    <!-- MUKA SURAT 4: BAHAGIAN C -->
+    <div class="page">
+        <div class="section-title">BAHAGIAN C: ISI TEMPAT KOSONG (10 Markah)</div>
+        <p><em>Arahan: Isi tempat kosong dengan maklumat yang tepat berdasarkan nota Sejarah.</em></p>
+
+        <div class="question">
+            1. Padankan dan tuliskan tempoh masa yang betul bagi Konsep Masa di bawah (Contoh: 10 tahun, 100 tahun, 1000 tahun): <em>(3 Markah)</em><br><br>
+            a) Dekad : <input type="text" class="input-text" style="width: 200px;"><br><br>
+            b) Abad : <input type="text" class="input-text" style="width: 200px;"><br><br>
+            c) Alaf : <input type="text" class="input-text" style="width: 200px;"><br>
+        </div>
+
+        <div class="question">
+            2. Lengkapkan ayat di bawah mengenai sejarah tempat tinggal dan tokoh setempat. <em>(3 Markah)</em><br><br>
+            a) Kawasan Ranau di Sabah mendapat namanya daripada perkataan "Ranahon" yang bermaksud kawasan <input type="text" class="input-text" style="width: 250px;">.<br><br>
+            b) Bandar Miri di Sarawak berkembang maju kerana kegiatan industri <input type="text" class="input-text" style="width: 200px;"> yang bermula sejak tahun 1910.<br><br>
+            c) Individu yang telah banyak menyumbang jasa dan bakti kepada komuniti di sesuatu kawasan dikenali sebagai <input type="text" class="input-text" style="width: 200px;">.
+        </div>
+
+        <div class="question">
+            3. Tuliskan lokasi yang tepat bagi Kerajaan Melayu Awal yang disenaraikan di bawah. <em>(4 Markah)</em><br><br>
+            a) Kerajaan Kedah Tua : <input type="text" class="input-text" style="width: 300px;"><br><br>
+            b) Kerajaan Chih-Tu : <input type="text" class="input-text" style="width: 300px;"><br><br>
+            c) Kerajaan Santubong : <input type="text" class="input-text" style="width: 300px;"><br><br>
+            d) Kerajaan Srivijaya : <input type="text" class="input-text" style="width: 300px;"><br>
+        </div>
+
+        <!-- Butang Interaktif (Tidak muncul semasa dicetak) -->
+        <div class="btn-container no-print">
+            <button onclick="semakJawapan()">Semak Jawapan</button>
+            <button class="btn-print" onclick="window.print()">Cetak Kertas Ujian (PDF)</button>
+        </div>
+
+        <!-- SKEMA JAWAPAN (Tersembunyi sehingga butang disemak / Muncul di halaman baharu jika dicetak) -->
+        <div id="skema">
+            <div class="section-title">SKEMA JAWAPAN (UNTUK RUJUKAN GURU / SEMAKAN KENDIRI)</div>
+            <h3 id="markah-objektif"></h3>
+            <p><strong>BAHAGIAN A (Objektif)</strong></p>
+            <ul>
+                <li>1. C (Kaedah Arkeologi)</li>
+                <li>2. B (Abad)</li>
+                <li>3. C (Buku Rekod Kesihatan)</li>
+                <li>4. B (Keluarga Kembangan)</li>
+                <li>5. D (Mercu tanda)</li>
+                <li>6. A (Tanjung Puteri)</li>
+                <li>7. C (Zaman Air Batu)</li>
+                <li>8. B (Epok Pleistosen)</li>
+                <li>9. C (Pentas Sunda)</li>
+                <li>10. B (Kerajaan Funan)</li>
+            </ul>
+
+            <p><strong>BAHAGIAN B (Subjektif)</strong></p>
+            <p>1. Kaedah Arkeologi / Kaedah Lisan / Kaedah Bertulis.</p>
+            <p>2. Menyara keluarga dan menyediakan keperluan asas / Memberikan kasih sayang dan menjaga keselamatan / Menjadi contoh teladan yang baik / Memberikan pendidikan yang sempurna. <em>(Terima mana-mana 2)</em></p>
+            <p>3. Lencana sekolah / Lagu sekolah / Bendera sekolah.</p>
+            <p>4. Bentuk Muka Bumi berubah (membentuk tasik/laut) / Iklim berubah (sederhana sejuk) / Paras air laut meningkat sehingga 100m / Kepupusan haiwan (Mamot/Harimau bertaring lengkung) / Manusia bergerak mencari kawasan lebih panas. <em>(Terima mana-mana 3)</em></p>
+
+            <p><strong>BAHAGIAN C (Isi Tempat Kosong)</strong></p>
+            <p>1. a) 10 tahun &nbsp;&nbsp; b) 100 tahun &nbsp;&nbsp; c) 1000 tahun</p>
+            <p>2. a) Sawah padi &nbsp;&nbsp; b) Petroleum &nbsp;&nbsp; c) Tokoh setempat</p>
+            <p>3. a) Lembah Bujang, Kedah &nbsp;&nbsp; b) Tanah Merah, Kelantan &nbsp;&nbsp; c) Sungai Sarawak, Sarawak &nbsp;&nbsp; d) Lembah Sungai Musi, Sumatera</p>
+        </div>
+    </div>
+
+    <!-- Skrip Semakan Interaktif -->
+    <script>
+        function semakJawapan() {
+            // Kunci Jawapan Bahagian A
+            const jawapanA = {
+                q1: 'C', q2: 'B', q3: 'C', q4: 'B', q5: 'D',
+                q6: 'A', q7: 'C', q8: 'B', q9: 'C', q10: 'B'
+            };
+
+            let skorA = 0;
+
+            // Semak Bahagian A
+            for (let i = 1; i <= 10; i++) {
+                let qName = 'q' + i;
+                let pilihanMurid = document.querySelector('input[name="' + qName + '"]:checked');
+                let divSoalan = document.getElementById(qName + '-container');
+
+                if (pilihanMurid) {
+                    if (pilihanMurid.value === jawapanA[qName]) {
+                        skorA++;
+                        divSoalan.style.borderLeft = "5px solid green";
+                        divSoalan.style.paddingLeft = "10px";
+                    } else {
+                        divSoalan.style.borderLeft = "5px solid red";
+                        divSoalan.style.paddingLeft = "10px";
+                    }
+                } else {
+                    divSoalan.style.borderLeft = "5px solid orange";
+                    divSoalan.style.paddingLeft = "10px";
+                }
+            }
+
+            // Papar Keputusan & Skema
+            document.getElementById('skema').style.display = 'block';
+            document.getElementById('markah-objektif').innerHTML = "Skor Bahagian A Anda: <span style='color:blue;'>" + skorA + " / 10</span>";
+            
+            // Scroll ke bahagian skema
+            document.getElementById('skema').scrollIntoView({ behavior: 'smooth' });
+            
+            alert("Semakan Bahagian A selesai! Anda mendapat " + skorA + "/10. Sila rujuk skema di bawah untuk menyemak Bahagian B dan C.");
+        }
+    </script>
+</body>
+</html>
