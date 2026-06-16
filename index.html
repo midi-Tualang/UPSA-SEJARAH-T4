@@ -71,6 +71,24 @@
             line-height: 1.6;
         }
 
+        /* Reka Bentuk Ruangan Tandatangan */
+        .signature-section {
+            display: flex;
+            justify-content: flex-start;
+            gap: 100px;
+            margin-top: 60px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .signature-box {
+            text-align: left;
+        }
+        .signature-line {
+            margin-top: 60px;
+            border-bottom: 1px solid #000;
+            width: 200px;
+        }
+
         /* Reka Bentuk Soalan */
         .section-title {
             font-size: 18px;
@@ -169,7 +187,6 @@
     <!-- MUKA SURAT 1: HADAPAN -->
     <div class="page">
         <div class="header">
-            <!-- Pautan gambar telah dikemas kini ke fail CBA7034 (1).gif -->
             <img src="https://raw.githubusercontent.com/midi-Tualang/Rekod-Aset-Sekolah/main/data/CBA7034.gif" alt="Logo SK Kampong Tengah">
             <h1>SEKOLAH KEBANGSAAN KAMPONG TENGAH</h1>
             <h2>UJIAN PERTENGAHAN SESI AKADEMIK (UPSA)</h2>
@@ -190,17 +207,29 @@
         <table class="info-table">
             <tr>
                 <th>NAMA MURID</th>
-                <td><input type="text" class="input-text" placeholder="Tulis nama penuh di sini..."></td>
+                <td><input type="text" class="input-text"></td>
             </tr>
             <tr>
                 <th>KELAS</th>
-                <td><input type="text" class="input-text" placeholder="Tulis kelas di sini..."></td>
+                <td><input type="text" class="input-text"></td>
             </tr>
             <tr>
                 <th>MARKAH</th>
                 <td><br><br></td>
             </tr>
         </table>
+
+        <!-- Ruangan Tandatangan -->
+        <div class="signature-section">
+            <div class="signature-box">
+                Disediakan oleh
+                <div class="signature-line"></div>
+            </div>
+            <div class="signature-box">
+                Disemak oleh:
+                <div class="signature-line"></div>
+            </div>
+        </div>
     </div>
 
     <!-- MUKA SURAT 2: BAHAGIAN A -->
